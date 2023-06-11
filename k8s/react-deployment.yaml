@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-k8s
+spec:
+  selector:
+    matchLabels:
+      app: react-k8s
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: react-k8s
+    spec:
+      containers:
+        - name: react-k8s
+          image: h4rasho/react:latest
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "200m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 3001

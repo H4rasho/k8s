@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nestjs-k8s
+spec:
+  selector:
+    matchLabels:
+      app: nestjs-k8s
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nestjs-k8s
+    spec:
+      containers:
+        - name: nestjs-k8s
+          image: h4rasho/zoov2:latest
+          env:
+            - name: DB_HOST
+              value: "postgres"
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_USERNAME
+              value: "postgres"
+            - name: DB_PASS
+              value: "gdk1JlTM"
+            - name: DB_NAME
+              value: "zoo"
+            - name: DB_DIALECT
+              value: "postgres"
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "200m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 3000
