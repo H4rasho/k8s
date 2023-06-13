@@ -6,7 +6,7 @@ function App() {
 
   useEffect(() => {
     console.log("fetching");
-    fetch("http://nestjs-k8s:3000")
+    fetch("api/animals")
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
