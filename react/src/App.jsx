@@ -5,7 +5,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    console.log("fetching");
+    console.log("fetching new data fron nginx");
     fetch("api/animals")
       .then((res) => res.json())
       .then((res) => {

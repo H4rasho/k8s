@@ -11,13 +11,13 @@ spec:
   rules:
     - http:
         paths:
-          - path: /(/|$)(.*)
+          - path: /(.*)
             pathType: Prefix
             backend:
               service:
                 name: react-k8s
                 port:
-                  number: 3001
+                  number: 80
           - path: /api(/|$)(.*)
             pathType: Prefix
             backend:

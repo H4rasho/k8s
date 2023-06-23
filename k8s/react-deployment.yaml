@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: react-k8s
-          image: h4rasho/react:latest
+          image: h4rasho/react-nginx:latest
           resources:
             requests:
               memory: "64Mi"
@@ -23,4 +23,4 @@ spec:
               memory: "128Mi"
               cpu: "500m"
           ports:
-            - containerPort: 3001
+            - containerPort: 80
